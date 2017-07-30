@@ -40,16 +40,26 @@ console.log(cost);
 }
 
 
-
 // 3: Which item has a "GBP" currency code? Display it's name and price.
 function question3 () {
   // Answer:
+  for(i = 0; i < data.length; i++){
+    if(data[i].currency_code === "GBP"){
+      console.log(data[i].title + " costs " + data[i].price + " pounds.")
+    }
+  }
 }
 
 
 // 4: Display a list of all items who are made of wood.
 function question4 () {
   // Answer:
+  for(i = 0; i < data.length; i++){
+    if(data[i].materials === "wood"){
+      console.log(data[i].title)
+
+    }
+  }
 }
 
 
@@ -57,6 +67,16 @@ function question4 () {
 //    Display the name, number of items and the items it is made of.
 function question5 () {
   // Answer:
+  let materialNum = 0
+
+  for(i = 0; i < data.length; i++){
+    materialNum += data[i].materials;
+
+    if(materialNum >= 8){
+      console.log(data[i].title + materialNum + data[i].materials);
+
+    }else console.log("Sorry")
+  }
 }
 
 
