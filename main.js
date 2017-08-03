@@ -10,7 +10,7 @@ console.log(data);
 function question1 () {
   // Answer:
     let totalPrice = 0;
-    for(i = 0; i < data.length; i++){
+    for(let i = 0; i < data.length; i++){
         totalPrice += data[i].price;
 
     }
@@ -54,34 +54,66 @@ function question3 () {
 // 4: Display a list of all items who are made of wood.
 function question4 () {
   // Answer:
-  for(i = 0; i < data.length; i++){
-    if(data[i].materials === "wood"){
-      console.log(data[i].title)
-
+  const itemsWithWood = []
+  for(let i = 0; i < data.length; i++){
+    if(data[i].materials.indexOf("wood") > -1){
+      itemsWithWood.push(data[i].title);
     }
-  }
+    // if(data[i].materials.length === "wood"){
+    //   for (let j=0; j < data[i].materials.length; j++){
+    //     if( data[i].materials[j] === "wood"){
+    //       itemsWithWood.push(data[i])
+    //     }
+    //   }
+    // }
+  }console.log (itemsWithWood);
 }
+// const newArr = data
+//         .filter(predicate)
+//         .filter(function(item, idx, arr){
+//           return item.price < 30;
+//         })
+//         .map(function(item, idx, arr){
+//           name: item.title;
+//           price: item.price;
+//         })
+// }
+// return itemsWithWood;
+
+//if true it will keep item in array if false it will reject item.
+// const predicate = function(item, idx, array){
+//   return item.materials.indexOf("wood") > -1;
+// }
+// const newArr = data.filter(predicate)
+
+// console.log("new array with filter", newArr)
 
 
 // 5: Which items are made of eight or more materials?
 //    Display the name, number of items and the items it is made of.
 function question5 () {
   // Answer:
-  let materialNum = 0
 
   for(i = 0; i < data.length; i++){
-    materialNum += data[i].materials;
 
-    if(materialNum >= 8){
-      console.log(data[i].title + materialNum + data[i].materials);
-
-    }else console.log("Sorry")
+    if(data[i].materials.length >= 8){
+      console.log(data[i].title + " has " + i + " materials: " + data[i].materials);
+    }
   }
 }
 
 
 // 6: How many items were made by their sellers?
 // Answer:
+
+// "who_made": "i_did"
 function question6 () {
-  // Answer:
+    // Answer:
+    let numberSelfMade = []
+    for(i = 0; i < data.length; i++)
+        if(data[i].who_made === "i_did"){
+        numberSelfMade.push(data[i])
+
+        }
+    console.log(numberSelfMade.length + " items were made by their sellers.")
 }
